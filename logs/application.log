@@ -1,0 +1,14 @@
+2017-06-20 16:17:58,434 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/D:/projects/stockDashboard/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-20 16:17:58,446 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2017-06-20 16:17:58,812 [INFO] from play.api.db.HikariCPConnectionPool in ForkJoinPool-1-worker-1 - datasource [default] bound to JNDI as DefaultDS
+2017-06-20 16:17:58,852 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-20 16:18:00,936 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2017-06-20 16:18:19,218 [INFO] from application in application-akka.actor.default-dispatcher-2 - info:002376 download success
+2017-06-20 16:18:19,218 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start insert 002376 history trade data
+2017-06-20 16:18:19,357 [INFO] from application in application-akka.actor.default-dispatcher-2 - End insert 002376 history trade data Success
+2017-06-20 16:18:19,357 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start Caluate MA5
+2017-06-20 16:18:21,799 [INFO] from application in application-akka.actor.default-dispatcher-2 - End Caluate MA5
+2017-06-20 16:18:21,799 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start Caluate MA60
+2017-06-20 16:18:23,468 [INFO] from application in application-akka.actor.default-dispatcher-2 - End Caluate MA60
+2017-06-20 16:18:23,468 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start Caluate MA250
+2017-06-20 16:18:25,122 [INFO] from application in application-akka.actor.default-dispatcher-2 - End Caluate MA250

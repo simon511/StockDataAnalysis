@@ -1,0 +1,69 @@
+@()
+
+@main("Welcome to Play") {
+  <script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+  <script>
+      $(function () {
+        function getStockDailyTradeList(){
+          $.get("/dailyTradeList", function (data, status) {
+              $.each(data, function(i,item) {
+
+                var t = $("#stockList");
+                var tr = $("<tr ></tr>");
+                var td = "<td>"+(i+1)+"</td>"
+                    + "<td>"+item['stockCode']+"</td>"
+                    + "<td>"+item['stockName']+"</td>"
+                    + "<td>"+item['openPrice']+"</td>"
+                    + "<td>"+item['closePrice']+"</td>"
+                    + "<td>"+item['priceChange']+"</td>"
+                    + "<td>"+item['percentPriceChange']+"</td>"
+                    + "<td>"+item['turnoverRate']+"</td>"
+                    + "<td>"+item['volume']+"</td>"
+                    + "<td>"+item['turnover']+"</td>"
+                    + "<td>"+item['totalMarketValue']+"</td>"
+                    + "<td>"+item['circulationMarketValue']+"</td>"
+                    + "<td>"+item['ma5']+"</td>"
+                    + "<td>"+item['ma60']+"</td>"
+                    + "<td>"+item['ma250']+"</td>";
+                console.log(td)
+                tr.append(td);
+                t.append(tr);
+              });
+          });
+        }
+        getStockDailyTradeList();
+      })
+  </script>
+  <h1>Stock DashBoard</h1>
+  <form method="POST" action="@routes.DashBoardController.addOptionalStock()">
+    <div>
+      <label>Stock Code:</label><input type="text" name="stockCode"/>
+      <label>Comment:</label><input type="text" name="comment"/>
+    </div>
+    <button>Add to Optional Stock</button>
+  </form>
+
+  <div id="mainDiv">
+    <table id="stockList">
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Open Price</th>
+          <th>Close Price</th>
+          <th>Price Change</th>
+          <th>Percent Price Change</th>
+          <th>Turnover Rate</th>
+          <th>Volume</th>
+          <th>Turnover</th>
+          <th>Total Market Value</th>
+          <th>Circulation Market Value</th>
+          <th>ma5</th>
+          <th>ma60</th>
+          <th>ma255</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+}
