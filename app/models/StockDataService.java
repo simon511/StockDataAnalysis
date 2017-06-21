@@ -59,6 +59,7 @@ public class StockDataService {
             orgOptionalStock.comment=optionalStock.comment;
             stockDataRepository.saveorUpdateOptionalStock(orgOptionalStock);
         }
+
         return optionalStock;
     }
 
@@ -165,7 +166,7 @@ public class StockDataService {
             InputStream inputStream = conn.getInputStream();
             byte[] getData = readInputStream(inputStream);
 
-            String savePath = "d:\\stockHistoryData";
+            String savePath = "d:\\stockHistoryData_dev";
             File saveDir = new File(savePath);
             if (!saveDir.exists()) {
                 saveDir.mkdir();
@@ -222,12 +223,14 @@ public class StockDataService {
                     if(data[6].equals("0.0")){
                         s.priceChange = new BigDecimal("0");
                         s.percentPriceChange = new BigDecimal("0");
+                        s.turnoverRate= new BigDecimal("0");
                     }
                     else {
                         s.priceChange = new BigDecimal(data[8]);
                         s.percentPriceChange = new BigDecimal(data[9]);
+                        s.turnoverRate= new BigDecimal(data[10]);
                     }
-                    s.turnoverRate= new BigDecimal(data[10]);
+
                     s.volume= new BigDecimal(data[11]);
                     s.turnover= new BigDecimal(data[12]);
                     s.totalMarketValue= new BigDecimal(data[13]);
