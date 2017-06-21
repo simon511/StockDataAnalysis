@@ -14,4 +14,6 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 GET     /dashboard                   controllers.DashBoardController.index()
 GET     /dailyTradeList              controllers.DashBoardController.getDailyTradeList()
-POST    /optionalStock                     controllers.DashBoardController.addOptionalStock()
+GET     /stockTrend                  controllers.DashBoardController.getStockTrend(stockCode:String)
+POST    /optionalStock               controllers.DashBoardController.addOptionalStock()
+GET     /calStageChange              controllers.DashBoardController.calStageChange(stockCode:String,startDate:String)

@@ -1,5 +1,7 @@
 package models;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -47,6 +49,11 @@ public class StockDataRepository {
         return null;
     }
 
+    public List findTop2StockDailyTradeList(String stockCode){
+        String sql="select s.stockCode,s.closePrice,s.ma5,s.ma60,s.ma250 from Stockdailytrade  s where s.stockcode='%s' and s.openPrice <>0.00 order by s.publishdate desc limit 2";
+        List results = jpaApi.em("default").createNativeQuery(String.format(sql,stockCode)).getResultList();
+        return results;
+    }
     public StockDailyTrade findLatestDailyTradeList(String stockCode){
 
         String sql="select s from StockDailyTrade s where s.publishDate in (select max(publishDate) from StockDailyTrade sdt) and s.stockCode ='%s' ";
@@ -60,6 +67,13 @@ public class StockDataRepository {
         return null;
     }
 
+    public List findStageChange(String stockCode,String startDate){
+        String sql = "select stockCode,lowPrice,highPrice,closePrice,publishdate from stockdailytrade where publishdate>'%s' and stockCode='%s' and openPrice<>0.0 order  by publishdate asc limit 6";
+
+        List result = jpaApi.em("default").createNativeQuery(String.format(sql,startDate,stockCode)).getResultList();
+
+        return result;
+    }
     public List findDailyTradeList(Map params){
         String sql = "select * from stockDailyTrade";
         List result = jpaApi.em("default").createNativeQuery(sql).getResultList();

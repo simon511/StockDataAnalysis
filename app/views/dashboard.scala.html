@@ -24,14 +24,31 @@
                     + "<td>"+item['circulationMarketValue']+"</td>"
                     + "<td>"+item['ma5']+"</td>"
                     + "<td>"+item['ma60']+"</td>"
-                    + "<td>"+item['ma250']+"</td>";
+                    + "<td>"+item['ma250']+"</td>"
+                    +"<td>"+item['trend']+"</td><td></td>";
                 console.log(td)
                 tr.append(td);
                 t.append(tr);
               });
           });
         }
+
+        function updateStockTrend(){
+          var jsonstr = "[]";
+          var stockAarray = eval('('+jsonstr+')');
+          $('#stockList tr').each(function(i) {
+            alert(i);
+            if (i > 0){
+              alert($(this).children('td:eq(1)').text());
+              stockAarray.push($(this).children('td:eq(1)').text());
+            }
+          });
+          console.log(stockAarray);
+        }
+
         getStockDailyTradeList();
+
+
       })
   </script>
   <h1>Stock DashBoard</h1>
@@ -62,6 +79,8 @@
           <th>ma5</th>
           <th>ma60</th>
           <th>ma255</th>
+          <th>Trend</th>
+          <th>Operation advice</th>
         </tr>
       </thead>
     </table>

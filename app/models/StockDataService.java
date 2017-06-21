@@ -15,9 +15,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.inject.Inject;
 import play.Logger;
+import play.libs.Json;
 
 /**
  * Created by qding on 6/19/2017.
@@ -32,7 +35,11 @@ public class StockDataService {
     }
 
     public List<StockDailyTrade> findDailyTradeList(){
-        return stockDataRepository.findDailyTradeList();
+        List<StockDailyTrade> stockDailyTrades = stockDataRepository.findDailyTradeList();
+        for (StockDailyTrade s : stockDailyTrades){
+            s.trend=Json.toJson(trendAnalysis(s.stockCode)).toString();
+        }
+        return stockDailyTrades;
     }
 
     public OptionalStock saveOptionalStock(OptionalStock optionalStock){
@@ -53,6 +60,95 @@ public class StockDataService {
             stockDataRepository.saveorUpdateOptionalStock(orgOptionalStock);
         }
         return optionalStock;
+    }
+
+    // caluate stage change
+    public Map calStageChange(String stockCode,String startDate){
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        List stockList = stockDataRepository.findStageChange(stockCode,startDate);
+        Map stockStageChange = new HashMap();
+        stockStageChange.put("stockCode",stockCode);
+        stockStageChange.put("startDate",startDate);
+        BigDecimal d1_low = BigDecimal.ZERO;
+        BigDecimal d1_high = BigDecimal.ZERO;
+        BigDecimal d1_close = BigDecimal.ZERO;
+        BigDecimal d3_low = BigDecimal.ZERO;
+        BigDecimal d3_high = BigDecimal.ZERO;
+        BigDecimal d3_close = BigDecimal.ZERO;
+        BigDecimal d5_low = BigDecimal.ZERO;
+        BigDecimal d5_high = BigDecimal.ZERO;
+        BigDecimal d5_close = BigDecimal.ZERO;
+        BigDecimal d0_close = BigDecimal.ZERO;
+
+        for(int i=0;i<stockList.size();i++){
+            Object[] obj = (Object[]) stockList.get(i);
+            if(i==0){
+                d0_close=(BigDecimal)obj[3];
+            }
+            if(i==1){
+             d1_low = (BigDecimal)obj[1];
+             d1_high = (BigDecimal)obj[2];
+             d1_close = (BigDecimal)obj[3];
+            }
+            if(i<=3) {
+                if (d3_low.compareTo((BigDecimal) obj[1]) < 0){
+                    d3_low = (BigDecimal) obj[1];
+                }
+                if (d3_low.compareTo((BigDecimal) obj[2]) > 0) {
+                    d3_high = (BigDecimal) obj[2];
+                }
+                d3_close = (BigDecimal)obj[3];
+            }
+            if(i<=5) {
+                if (d5_low.compareTo((BigDecimal) obj[1]) < 0){
+                    d5_low = (BigDecimal) obj[1];
+                }
+                if (d5_low.compareTo((BigDecimal) obj[2]) > 0) {
+                    d5_high = (BigDecimal) obj[2];
+                }
+                d5_close = (BigDecimal)obj[3];
+            }
+        }
+        stockStageChange.put("d0_close",d0_close);
+        stockStageChange.put("d1_low",d1_low);
+        stockStageChange.put("d1_high",d1_high);
+        stockStageChange.put("d1_close",d1_close);
+        stockStageChange.put("d3_low",d3_low);
+        stockStageChange.put("d3_high",d3_high);
+        stockStageChange.put("d3_close",d3_close);
+        stockStageChange.put("d5_low",d5_low);
+        stockStageChange.put("d5_high",d5_high);
+        return stockStageChange;
+    }
+
+    public Map trendAnalysis(String stockCode){
+        Map result= new HashMap();
+//        result.put("stockCode",stockCode);
+        List list = stockDataRepository.findTop2StockDailyTradeList(stockCode);
+        Object[] t1 = (Object[])list.get(0);
+        Object[] t2 = (Object[])list.get(1);
+        if(((BigDecimal)t1[2]).compareTo((BigDecimal)t2[2])>0) {
+            result.put("s", trend((BigDecimal) t1[2], (BigDecimal) t2[2]));
+            result.put("m", trend((BigDecimal) t1[3], (BigDecimal) t2[3]));
+            result.put("l", trend((BigDecimal) t1[4], (BigDecimal) t2[4]));
+        }
+        return result;
+    }
+
+    private String trend(BigDecimal o,BigDecimal r){
+        String str="";
+        if(o!=null && r!=null){
+            if(o.compareTo(r)>0){
+                str="up";
+            }
+            else if(o.compareTo(r)==0){
+                str="=";
+            }
+            else{
+                str="down";
+            }
+        }
+        return str;
     }
 
     private Boolean downloadHistoryData(String stockCode) {

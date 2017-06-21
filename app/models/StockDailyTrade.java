@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * Created by qding on 6/16/2017.
@@ -31,6 +32,11 @@ public class StockDailyTrade {
     public BigDecimal ma5;
     public BigDecimal ma60;
     public BigDecimal ma250;
+
+    @Transient
+    public String trend;
+    @Transient
+    public String operationAdvice;
 
 
 }

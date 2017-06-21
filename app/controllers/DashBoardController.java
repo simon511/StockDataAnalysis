@@ -5,6 +5,7 @@ import static play.mvc.Results.redirect;
 
 import java.io.BufferedReader;
 import java.util.List;
+import java.util.Map;
 import javax.inject.Inject;
 import models.OptionalStock;
 import models.StockDataService;
@@ -105,8 +106,16 @@ public class DashBoardController {
         return redirect(routes.DashBoardController.index());
     }
 
+    public Result getStockTrend(String stockCode){
+        return ok(Json.toJson(stockDataService.trendAnalysis(stockCode)));
+    }
     public Result getDailyTradeList(){
         List tradeList  = stockDataService.findDailyTradeList();
         return ok(Json.toJson(tradeList));
+    }
+
+    public Result calStageChange(String stockCode,String date){
+        Map map  = stockDataService.calStageChange(stockCode,date);
+        return ok(Json.toJson(map));
     }
 }
