@@ -97,6 +97,7 @@ public class DashBoardController {
 //            }
 //        }
 //        stockDataService.calMa("000651");
+        stockDataService.initStockHistoryData();
         return ok(views.html.dashboard.render());
     }
 

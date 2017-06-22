@@ -189,6 +189,17 @@ public class StockDataService {
         return saveSuccess;
     }
 
+    public void initStockHistoryData(){
+        File root = new File("D:\\stockHistoryData\\");
+        File[] files = root.listFiles();
+        for(File file:files){
+            String fileName= file.getName();
+            Logger.info("Start insert "+fileName+" history trade data");
+            insertHistoryData(fileName.substring(0,fileName.length()-4));
+            Logger.info("End insert "+fileName+" history trade data");
+        }
+    }
+
     private void insertHistoryData(String stockCode){
         Logger.info("Start insert "+stockCode+" history trade data");
         String csvFile = "D:\\stockHistoryData\\" + stockCode + ".csv";
@@ -226,15 +237,17 @@ public class StockDataService {
                         s.turnoverRate= new BigDecimal("0");
                     }
                     else {
-                        s.priceChange = new BigDecimal(data[8]);
-                        s.percentPriceChange = new BigDecimal(data[9]);
-                        s.turnoverRate= new BigDecimal(data[10]);
-                    }
 
-                    s.volume= new BigDecimal(data[11]);
-                    s.turnover= new BigDecimal(data[12]);
-                    s.totalMarketValue= new BigDecimal(data[13]);
-                    s.circulationMarketValue= new BigDecimal(data[14]);
+                        s.priceChange = new BigDecimal(changeNone(data[8]));
+                        s.percentPriceChange = new BigDecimal(changeNone(data[9]));
+                        s.turnoverRate= new BigDecimal(changeNone(data[10]));
+                    }
+                    if(data.length>11) {
+                        s.volume = new BigDecimal(data[11]);
+                        s.turnover = new BigDecimal(data[12]);
+                        s.totalMarketValue = new BigDecimal(data[13]);
+                        s.circulationMarketValue = new BigDecimal(data[14]);
+                    }
                     if(latestStockDailyTrade==null || s.publishDate.after(latestStockDailyTrade.publishDate)) {
                         stockDataRepository.insertDailytrade(s);
                     }
@@ -257,6 +270,12 @@ public class StockDataService {
         }
         Logger.info("End insert "+stockCode+" history trade data Success");
     }
+
+    private String changeNone(String price){
+        return price.isEmpty() || price.equals("None") ? "0.0":price;
+    }
+
+
     private static  byte[] readInputStream(InputStream inputStream) throws IOException {
         byte[] buffer = new byte[1024];
         int len = 0;
