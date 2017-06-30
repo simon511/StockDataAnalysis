@@ -13,6 +13,8 @@ import play.data.FormFactory;
 import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Result;
+import services.StockHistoryDataUtil;
+import services.StockQueue;
 
 /**
  * Created by qding on 6/15/2017.
@@ -23,12 +25,14 @@ public class DashBoardController {
     private final StockDataService stockDataService;
     private final FormFactory formFactory;
     private final HttpExecutionContext ec;
+    private final StockQueue stockQueue ;
 
     @Inject
-    public DashBoardController(FormFactory formFactory, StockDataService stockDataService, HttpExecutionContext ec) {
+    public DashBoardController(FormFactory formFactory, StockDataService stockDataService,StockQueue stockQueue, HttpExecutionContext ec) {
         this.stockDataService = stockDataService;
         this.formFactory = formFactory;
         this.ec = ec;
+        this.stockQueue = stockQueue;
     }
 
     public Result index() {
@@ -36,6 +40,16 @@ public class DashBoardController {
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
+
+//        StockHistoryDataUtil r = new StockHistoryDataUtil(stockQueue);
+
+        for(int i=0; i<5;i++) {
+            StockHistoryDataUtil r = new StockHistoryDataUtil(stockQueue,stockDataService);
+            Thread t = new Thread(r);//创建线程
+            System.out.println("Start new Thread "+ i +" *******");
+            t.start(); //线程开启
+        }
+        System.out.println("end Thread ******");
 
 //        try {
 //
@@ -97,9 +111,12 @@ public class DashBoardController {
 //            }
 //        }
 //        stockDataService.calMa("000651");
-        stockDataService.initStockHistoryData();
+//        stockDataService.initStockHistoryData();
+//          stockDataService.initStockList();
         return ok(views.html.dashboard.render());
     }
+
+
 
     public Result addOptionalStock() {
         OptionalStock optionalStock = formFactory.form(OptionalStock.class).bindFromRequest().get();

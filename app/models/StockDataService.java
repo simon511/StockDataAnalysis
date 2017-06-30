@@ -14,13 +14,17 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
+import org.apache.commons.lang3.StringUtils;
 import play.Logger;
 import play.libs.Json;
+import utils.CSVFileUtil;
 
 /**
  * Created by qding on 6/19/2017.
@@ -119,6 +123,7 @@ public class StockDataService {
         stockStageChange.put("d3_close",d3_close);
         stockStageChange.put("d5_low",d5_low);
         stockStageChange.put("d5_high",d5_high);
+        stockStageChange.put("d5_close",d5_close);
         return stockStageChange;
     }
 
@@ -134,6 +139,43 @@ public class StockDataService {
             result.put("l", trend((BigDecimal) t1[4], (BigDecimal) t2[4]));
         }
         return result;
+    }
+
+    public List findCDStockList(){
+        String sql="select a.stockcode,a.publishdate,a.closePrice,a.openPrice,a.lowPrice,a.rat "
+            + "from (select 100*((s.closePrice-s.lowPrice)/s.openPrice) as rat,s.* "
+            + "from stockdailytrade s where  s.closePrice-s.lowPrice>0 "
+            + "and s.openPrice>s.closePrice order by stockCode,publishdate desc)"
+            + " a where a.rat>3.5";
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        List<Object[]> list =stockDataRepository.findByNativeSQL(sql);
+        ArrayList<String[]> content = new ArrayList();
+        for(Object[] o : list){
+            List tempList = new ArrayList();
+
+            List sd = Arrays.asList(o);
+            tempList.addAll(sd);
+            Map result = calStageChange((String)sd.get(0),sdf.format((Date)sd.get(1)));
+            tempList.add(result.get("d0_close"));
+            tempList.add(result.get("d1_low"));
+            tempList.add(result.get("d1_high"));
+            tempList.add(result.get("d1_close"));
+            tempList.add(result.get("d3_low"));
+            tempList.add(result.get("d3_high"));
+            tempList.add(result.get("d3_close"));
+            tempList.add(result.get("d5_low"));
+            tempList.add(result.get("d5_high"));
+            tempList.add(result.get("d5_close"));
+            content.add(StringUtils.join(tempList,",").split(","));
+
+        }
+        try {
+            CSVFileUtil.saveToCSVFile(content, "d:\\mode1.csv");
+        }
+        catch (Exception ex){
+            Logger.error("write csv file error"+ex.getMessage());
+        }
+        return list;
     }
 
     private String trend(BigDecimal o,BigDecimal r){
@@ -200,7 +242,60 @@ public class StockDataService {
         }
     }
 
-    private void insertHistoryData(String stockCode){
+    public void initStockList(){
+        File root = new File("D:\\stockHistoryData\\");
+        File[] files = root.listFiles();
+        for(File file:files){
+            String fileName= file.getName();
+            Logger.info("Start insert "+fileName+" history trade data");
+            Stock stock = new Stock();
+            stock.stockCode=fileName.substring(0,fileName.length()-4);
+            stock.dataStatus="OUTSTANDING";
+            BufferedReader br =null;
+            String line = "";
+            List<String> historyData = new ArrayList<String>();
+            try {
+                br = new BufferedReader(new FileReader(file));
+                while ((line = br.readLine()) != null) {
+                    historyData.add(line);
+                }
+                SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
+                String lastestLine = historyData.get(1);
+                String firstLine = historyData.get(historyData.size()-1);
+                String[] firstData = firstLine.split(",");
+                String[] lastestData = lastestLine.split(",");
+
+                stock.stockName=lastestData[2];
+                try{
+                    stock.quotedDate = sdf.parse(firstData[0]);
+                    stock.exitDate  = sdf.parse(lastestData[0]);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(stock.exitDate);
+                    if(cal.get(Calendar.YEAR)<2017){
+
+                        stock.status="Delisting";
+                    }
+                    else{
+                        stock.exitDate=null;
+                        stock.status="Activity";
+                    }
+                }
+                catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                stockDataRepository.insertStock(stock);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Logger.info("End insert "+fileName+" history trade data");
+        }
+    }
+
+    public void insertHistoryData(String stockCode){
         Logger.info("Start insert "+stockCode+" history trade data");
         String csvFile = "D:\\stockHistoryData\\" + stockCode + ".csv";
         BufferedReader br = null;
@@ -215,41 +310,43 @@ public class StockDataService {
                 if(i>0) {
                     StockDailyTrade s = new StockDailyTrade();
                     String[] data = line.split(cvsSplitBy);
-                    s.id=data[0].replace("-","")+data[1].substring(1);
-                    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
+                    if(Integer.parseInt(data[0].substring(0,4))>2008){
+                        s.id=data[0].replace("-","")+data[1].substring(1);
+                        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
 
-                    try{
-                        s.publishDate= sdf.parse(data[0]);
-                    }
-                    catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    s.stockCode=data[1].substring(1);
-                    s.stockName=data[2];
-                    s.closePrice= new BigDecimal(data[3]);
-                    s.highPrice= new BigDecimal(data[4]);
-                    s.lowPrice= new BigDecimal(data[5]);
-                    s.openPrice= new BigDecimal(data[6]);
-                    s.lastClosedPrice= new BigDecimal(data[7]);
-                    if(data[6].equals("0.0")){
-                        s.priceChange = new BigDecimal("0");
-                        s.percentPriceChange = new BigDecimal("0");
-                        s.turnoverRate= new BigDecimal("0");
-                    }
-                    else {
+                        try{
+                            s.publishDate= sdf.parse(data[0]);
+                        }
+                        catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        s.stockCode=data[1].substring(1);
+                        s.stockName=data[2];
+                        s.closePrice= new BigDecimal(data[3]);
+                        s.highPrice= new BigDecimal(data[4]);
+                        s.lowPrice= new BigDecimal(data[5]);
+                        s.openPrice= new BigDecimal(data[6]);
+                        s.lastClosedPrice= new BigDecimal(data[7]);
+                        if(data[6].equals("0.0")){
+                            s.priceChange = new BigDecimal("0");
+                            s.percentPriceChange = new BigDecimal("0");
+                            s.turnoverRate= new BigDecimal("0");
+                        }
+                        else {
 
-                        s.priceChange = new BigDecimal(changeNone(data[8]));
-                        s.percentPriceChange = new BigDecimal(changeNone(data[9]));
-                        s.turnoverRate= new BigDecimal(changeNone(data[10]));
-                    }
-                    if(data.length>11) {
-                        s.volume = new BigDecimal(data[11]);
-                        s.turnover = new BigDecimal(data[12]);
-                        s.totalMarketValue = new BigDecimal(data[13]);
-                        s.circulationMarketValue = new BigDecimal(data[14]);
-                    }
-                    if(latestStockDailyTrade==null || s.publishDate.after(latestStockDailyTrade.publishDate)) {
-                        stockDataRepository.insertDailytrade(s);
+                            s.priceChange = new BigDecimal(changeNone(data[8]));
+                            s.percentPriceChange = new BigDecimal(changeNone(data[9]));
+                            s.turnoverRate= new BigDecimal(changeNone(data[10]));
+                        }
+                        if(data.length>11) {
+                            s.volume = new BigDecimal(data[11]);
+                            s.turnover = new BigDecimal(data[12]);
+                            s.totalMarketValue = new BigDecimal(data[13]);
+                            s.circulationMarketValue = new BigDecimal(data[14]);
+                        }
+                        if(latestStockDailyTrade==null || s.publishDate.after(latestStockDailyTrade.publishDate)) {
+                            stockDataRepository.insertDailytrade(s);
+                        }
                     }
                 }
                 i++;

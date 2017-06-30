@@ -1,14 +1,424 @@
-2017-06-20 16:17:58,434 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/D:/projects/stockDashboard/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
-2017-06-20 16:17:58,446 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2017-06-20 16:17:58,812 [INFO] from play.api.db.HikariCPConnectionPool in ForkJoinPool-1-worker-1 - datasource [default] bound to JNDI as DefaultDS
-2017-06-20 16:17:58,852 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
-2017-06-20 16:18:00,936 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
-2017-06-20 16:18:19,218 [INFO] from application in application-akka.actor.default-dispatcher-2 - info:002376 download success
-2017-06-20 16:18:19,218 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start insert 002376 history trade data
-2017-06-20 16:18:19,357 [INFO] from application in application-akka.actor.default-dispatcher-2 - End insert 002376 history trade data Success
-2017-06-20 16:18:19,357 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start Caluate MA5
-2017-06-20 16:18:21,799 [INFO] from application in application-akka.actor.default-dispatcher-2 - End Caluate MA5
-2017-06-20 16:18:21,799 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start Caluate MA60
-2017-06-20 16:18:23,468 [INFO] from application in application-akka.actor.default-dispatcher-2 - End Caluate MA60
-2017-06-20 16:18:23,468 [INFO] from application in application-akka.actor.default-dispatcher-2 - Start Caluate MA250
-2017-06-20 16:18:25,122 [INFO] from application in application-akka.actor.default-dispatcher-2 - End Caluate MA250
+2017-06-30 15:06:55,940 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:06:55,952 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2017-06-30 15:06:56,242 [INFO] from play.api.db.HikariCPConnectionPool in ForkJoinPool-1-worker-1 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:06:56,284 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:06:58,375 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
+2017-06-30 15:10:26,680 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
+2017-06-30 15:10:26,780 [WARN] from application in application-akka.actor.default-dispatcher-6 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:10:26,780 [INFO] from application in application-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
+2017-06-30 15:10:26,802 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-6 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:10:26,813 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-6 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:10:27,125 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-6 - Application started (Dev)
+2017-06-30 15:22:37,505 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2017-06-30 15:22:37,597 [WARN] from application in application-akka.actor.default-dispatcher-4 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:22:37,597 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2017-06-30 15:22:37,613 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:22:37,632 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:22:37,942 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2017-06-30 15:27:00,745 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2017-06-30 15:27:00,831 [WARN] from application in application-akka.actor.default-dispatcher-2 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:27:00,831 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2017-06-30 15:27:00,849 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:27:00,867 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:27:01,120 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-06-30 15:34:07,220 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2017-06-30 15:34:07,301 [WARN] from application in application-akka.actor.default-dispatcher-2 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:34:07,301 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2017-06-30 15:34:07,322 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:34:07,339 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:34:07,667 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-06-30 15:34:07,691 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000002.csv history trade data
+2017-06-30 15:34:07,737 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000002.csv history trade data
+2017-06-30 15:34:07,737 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000025.csv history trade data
+2017-06-30 15:34:07,749 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000025.csv history trade data
+2017-06-30 15:34:07,749 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000032.csv history trade data
+2017-06-30 15:34:07,765 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000032.csv history trade data
+2017-06-30 15:34:07,765 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000033.csv history trade data
+2017-06-30 15:34:07,778 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000033.csv history trade data
+2017-06-30 15:34:07,778 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000034.csv history trade data
+2017-06-30 15:34:07,795 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000034.csv history trade data
+2017-06-30 15:34:07,798 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000035.csv history trade data
+2017-06-30 15:34:07,812 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000035.csv history trade data
+2017-06-30 15:34:07,812 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000063.csv history trade data
+2017-06-30 15:34:07,829 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000063.csv history trade data
+2017-06-30 15:34:07,829 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000155.csv history trade data
+2017-06-30 15:34:07,842 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000155.csv history trade data
+2017-06-30 15:34:07,842 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000156.csv history trade data
+2017-06-30 15:34:07,852 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000156.csv history trade data
+2017-06-30 15:34:07,852 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000157.csv history trade data
+2017-06-30 15:34:07,866 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000157.csv history trade data
+2017-06-30 15:34:07,866 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000430.csv history trade data
+2017-06-30 15:34:07,884 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000430.csv history trade data
+2017-06-30 15:34:07,884 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000488.csv history trade data
+2017-06-30 15:34:07,897 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000488.csv history trade data
+2017-06-30 15:34:07,897 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000498.csv history trade data
+2017-06-30 15:34:07,912 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000498.csv history trade data
+2017-06-30 15:34:07,912 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000525.csv history trade data
+2017-06-30 15:34:07,922 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000525.csv history trade data
+2017-06-30 15:34:07,922 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000526.csv history trade data
+2017-06-30 15:34:07,930 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000526.csv history trade data
+2017-06-30 15:34:07,930 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000530.csv history trade data
+2017-06-30 15:34:07,938 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000530.csv history trade data
+2017-06-30 15:34:07,938 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000544.csv history trade data
+2017-06-30 15:34:07,946 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000544.csv history trade data
+2017-06-30 15:34:07,946 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000545.csv history trade data
+2017-06-30 15:34:07,955 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000545.csv history trade data
+2017-06-30 15:34:07,955 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000546.csv history trade data
+2017-06-30 15:34:07,963 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000546.csv history trade data
+2017-06-30 15:34:07,963 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000547.csv history trade data
+2017-06-30 15:34:07,979 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000547.csv history trade data
+2017-06-30 15:34:07,980 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000548.csv history trade data
+2017-06-30 15:34:07,990 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000548.csv history trade data
+2017-06-30 15:34:07,990 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000593.csv history trade data
+2017-06-30 15:34:07,997 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000593.csv history trade data
+2017-06-30 15:34:07,997 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000594.csv history trade data
+2017-06-30 15:34:08,004 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000594.csv history trade data
+2017-06-30 15:34:08,004 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000627.csv history trade data
+2017-06-30 15:34:08,011 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000627.csv history trade data
+2017-06-30 15:34:08,011 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000635.csv history trade data
+2017-06-30 15:34:08,021 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000635.csv history trade data
+2017-06-30 15:34:08,021 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000651.csv history trade data
+2017-06-30 15:34:08,031 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000651.csv history trade data
+2017-06-30 15:34:08,031 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000671.csv history trade data
+2017-06-30 15:34:08,038 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000671.csv history trade data
+2017-06-30 15:34:08,038 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000683.csv history trade data
+2017-06-30 15:34:08,047 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000683.csv history trade data
+2017-06-30 15:34:08,047 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000685.csv history trade data
+2017-06-30 15:34:08,061 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000685.csv history trade data
+2017-06-30 15:34:08,061 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000708.csv history trade data
+2017-06-30 15:34:08,075 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000708.csv history trade data
+2017-06-30 15:34:08,075 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000709.csv history trade data
+2017-06-30 15:34:08,105 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000709.csv history trade data
+2017-06-30 15:34:08,105 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000710.csv history trade data
+2017-06-30 15:34:08,148 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000710.csv history trade data
+2017-06-30 15:34:08,148 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000711.csv history trade data
+2017-06-30 15:34:08,157 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000711.csv history trade data
+2017-06-30 15:34:08,157 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000756.csv history trade data
+2017-06-30 15:34:08,166 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000756.csv history trade data
+2017-06-30 15:34:08,166 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000757.csv history trade data
+2017-06-30 15:34:08,174 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000757.csv history trade data
+2017-06-30 15:34:08,174 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000758.csv history trade data
+2017-06-30 15:34:08,184 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000758.csv history trade data
+2017-06-30 15:34:08,184 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000807.csv history trade data
+2017-06-30 15:34:08,192 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000807.csv history trade data
+2017-06-30 15:34:08,192 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000809.csv history trade data
+2017-06-30 15:34:08,201 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000809.csv history trade data
+2017-06-30 15:34:08,201 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000810.csv history trade data
+2017-06-30 15:34:08,208 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000810.csv history trade data
+2017-06-30 15:34:08,208 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000811.csv history trade data
+2017-06-30 15:34:08,217 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000811.csv history trade data
+2017-06-30 15:34:08,217 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000830.csv history trade data
+2017-06-30 15:34:08,224 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000830.csv history trade data
+2017-06-30 15:34:08,224 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000848.csv history trade data
+2017-06-30 15:34:08,231 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000848.csv history trade data
+2017-06-30 15:34:08,231 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000850.csv history trade data
+2017-06-30 15:34:08,239 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000850.csv history trade data
+2017-06-30 15:34:08,239 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000851.csv history trade data
+2017-06-30 15:34:08,245 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000851.csv history trade data
+2017-06-30 15:34:08,245 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000898.csv history trade data
+2017-06-30 15:34:08,253 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000898.csv history trade data
+2017-06-30 15:34:08,253 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000899.csv history trade data
+2017-06-30 15:34:08,261 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000899.csv history trade data
+2017-06-30 15:34:08,261 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000900.csv history trade data
+2017-06-30 15:34:08,269 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000900.csv history trade data
+2017-06-30 15:34:08,269 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000930.csv history trade data
+2017-06-30 15:34:08,276 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000930.csv history trade data
+2017-06-30 15:34:08,276 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000931.csv history trade data
+2017-06-30 15:34:08,285 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000931.csv history trade data
+2017-06-30 15:34:08,285 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000961.csv history trade data
+2017-06-30 15:34:08,293 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000961.csv history trade data
+2017-06-30 15:34:08,293 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000962.csv history trade data
+2017-06-30 15:34:08,300 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000962.csv history trade data
+2017-06-30 15:34:08,300 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000963.csv history trade data
+2017-06-30 15:34:08,308 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000963.csv history trade data
+2017-06-30 15:34:08,308 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000965.csv history trade data
+2017-06-30 15:34:08,315 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000965.csv history trade data
+2017-06-30 15:34:08,315 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000966.csv history trade data
+2017-06-30 15:34:08,321 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000966.csv history trade data
+2017-06-30 15:34:08,321 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000985.csv history trade data
+2017-06-30 15:34:08,330 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000985.csv history trade data
+2017-06-30 15:34:08,330 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 000987.csv history trade data
+2017-06-30 15:34:08,341 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 000987.csv history trade data
+2017-06-30 15:34:08,341 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002009.csv history trade data
+2017-06-30 15:34:08,353 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002009.csv history trade data
+2017-06-30 15:34:08,353 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002010.csv history trade data
+2017-06-30 15:34:08,361 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002010.csv history trade data
+2017-06-30 15:34:08,361 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002011.csv history trade data
+2017-06-30 15:34:08,375 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002011.csv history trade data
+2017-06-30 15:34:08,375 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002012.csv history trade data
+2017-06-30 15:34:08,398 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002012.csv history trade data
+2017-06-30 15:34:08,398 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002013.csv history trade data
+2017-06-30 15:34:08,411 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002013.csv history trade data
+2017-06-30 15:34:08,411 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002051.csv history trade data
+2017-06-30 15:34:08,417 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002051.csv history trade data
+2017-06-30 15:34:08,417 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002071.csv history trade data
+2017-06-30 15:34:08,425 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002071.csv history trade data
+2017-06-30 15:34:08,425 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002072.csv history trade data
+2017-06-30 15:34:08,433 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002072.csv history trade data
+2017-06-30 15:34:08,433 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002073.csv history trade data
+2017-06-30 15:34:08,440 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002073.csv history trade data
+2017-06-30 15:34:08,440 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002074.csv history trade data
+2017-06-30 15:34:08,445 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002074.csv history trade data
+2017-06-30 15:34:08,445 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002075.csv history trade data
+2017-06-30 15:34:08,451 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002075.csv history trade data
+2017-06-30 15:34:08,451 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002081.csv history trade data
+2017-06-30 15:34:08,460 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002081.csv history trade data
+2017-06-30 15:34:08,460 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002088.csv history trade data
+2017-06-30 15:34:08,467 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002088.csv history trade data
+2017-06-30 15:34:08,467 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002106.csv history trade data
+2017-06-30 15:34:08,473 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002106.csv history trade data
+2017-06-30 15:34:08,473 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002107.csv history trade data
+2017-06-30 15:34:08,480 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002107.csv history trade data
+2017-06-30 15:34:08,480 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002131.csv history trade data
+2017-06-30 15:34:08,486 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002131.csv history trade data
+2017-06-30 15:34:08,486 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002132.csv history trade data
+2017-06-30 15:34:08,493 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002132.csv history trade data
+2017-06-30 15:34:08,493 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002133.csv history trade data
+2017-06-30 15:34:08,498 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002133.csv history trade data
+2017-06-30 15:34:08,498 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002134.csv history trade data
+2017-06-30 15:34:08,502 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002134.csv history trade data
+2017-06-30 15:34:08,502 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002135.csv history trade data
+2017-06-30 15:34:08,509 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002135.csv history trade data
+2017-06-30 15:34:08,509 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002136.csv history trade data
+2017-06-30 15:34:08,514 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002136.csv history trade data
+2017-06-30 15:34:08,514 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002137.csv history trade data
+2017-06-30 15:34:08,519 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002137.csv history trade data
+2017-06-30 15:34:08,519 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002142.csv history trade data
+2017-06-30 15:34:08,525 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002142.csv history trade data
+2017-06-30 15:34:08,525 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002151.csv history trade data
+2017-06-30 15:34:08,531 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002151.csv history trade data
+2017-06-30 15:34:08,531 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002173.csv history trade data
+2017-06-30 15:34:08,536 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002173.csv history trade data
+2017-06-30 15:34:08,536 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002174.csv history trade data
+2017-06-30 15:34:08,542 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002174.csv history trade data
+2017-06-30 15:34:08,542 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002195.csv history trade data
+2017-06-30 15:34:08,549 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002195.csv history trade data
+2017-06-30 15:34:08,549 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002207.csv history trade data
+2017-06-30 15:34:08,555 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002207.csv history trade data
+2017-06-30 15:34:08,555 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002222.csv history trade data
+2017-06-30 15:34:08,561 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002222.csv history trade data
+2017-06-30 15:34:08,561 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 002376.csv history trade data
+2017-06-30 15:34:08,566 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 002376.csv history trade data
+2017-06-30 15:34:08,566 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 600001.csv history trade data
+2017-06-30 15:34:08,573 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 600001.csv history trade data
+2017-06-30 15:34:08,573 [INFO] from application in application-akka.actor.default-dispatcher-5 - Start insert 600599.csv history trade data
+2017-06-30 15:34:08,580 [INFO] from application in application-akka.actor.default-dispatcher-5 - End insert 600599.csv history trade data
+2017-06-30 15:34:52,071 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2017-06-30 15:34:52,140 [WARN] from application in application-akka.actor.default-dispatcher-3 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:34:52,140 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2017-06-30 15:34:52,150 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-3 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:34:52,159 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:34:52,388 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
+2017-06-30 15:57:19,603 [ERROR] from application in netty-event-loop-8 - 
+
+! @74flkkf3o - Internal server error, for (GET) [/dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[constructor StockHistoryDataUtil in class services.StockHistoryDataUtil cannot be applied to given types;
+  required: services.StockQueue,models.StockDataService
+  found: services.StockQueue
+  reason: actual and formal argument lists differ in length]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:339)
+	at play.runsupport.Reloader$$anon$3.run(Reloader.scala:44)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:40)
+	at play.runsupport.Reloader.reload(Reloader.scala:337)
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:123)
+	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:121)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:415)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2017-06-30 15:57:47,003 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2017-06-30 15:57:47,077 [WARN] from application in application-akka.actor.default-dispatcher-2 - application.conf @ file:/D:/GitHubProject/StockDataAnalysis/target/scala-2.11/classes/application.conf: 7: user is deprecated, use username instead
+2017-06-30 15:57:47,077 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2017-06-30 15:57:47,090 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
+2017-06-30 15:57:47,102 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/stock?characterEncoding=UTF-8
+2017-06-30 15:57:47,367 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-06-30 15:58:15,105 [INFO] from application in Thread-55 - Start insert 000002 history trade data
+2017-06-30 15:58:15,147 [INFO] from application in Thread-59 - Start insert 000025 history trade data
+2017-06-30 15:58:15,158 [INFO] from application in Thread-57 - Start insert 000032 history trade data
+2017-06-30 15:58:15,174 [INFO] from application in Thread-56 - Start insert 000033 history trade data
+2017-06-30 15:58:15,188 [INFO] from application in Thread-58 - Start insert 000034 history trade data
+2017-06-30 15:58:21,420 [INFO] from application in Thread-56 - End insert 000033 history trade data Success
+2017-06-30 15:58:21,488 [INFO] from application in Thread-56 - Start insert 000035 history trade data
+2017-06-30 15:58:24,316 [INFO] from application in Thread-57 - End insert 000032 history trade data Success
+2017-06-30 15:58:24,379 [INFO] from application in Thread-57 - Start insert 000063 history trade data
+2017-06-30 15:58:24,463 [INFO] from application in Thread-59 - End insert 000025 history trade data Success
+2017-06-30 15:58:24,481 [INFO] from application in Thread-58 - End insert 000034 history trade data Success
+2017-06-30 15:58:24,507 [INFO] from application in Thread-59 - Start insert 000156 history trade data
+2017-06-30 15:58:24,527 [INFO] from application in Thread-58 - Start insert 000157 history trade data
+2017-06-30 15:58:25,629 [INFO] from application in Thread-55 - End insert 000002 history trade data Success
+2017-06-30 15:58:25,660 [INFO] from application in Thread-55 - Start insert 000430 history trade data
+2017-06-30 15:58:29,677 [INFO] from application in Thread-59 - End insert 000156 history trade data Success
+2017-06-30 15:58:29,730 [INFO] from application in Thread-59 - Start insert 000488 history trade data
+2017-06-30 15:58:32,106 [INFO] from application in Thread-56 - End insert 000035 history trade data Success
+2017-06-30 15:58:32,256 [INFO] from application in Thread-56 - Start insert 000498 history trade data
+2017-06-30 15:58:35,335 [INFO] from application in Thread-57 - End insert 000063 history trade data Success
+2017-06-30 15:58:35,440 [INFO] from application in Thread-57 - Start insert 000525 history trade data
+2017-06-30 15:58:35,458 [INFO] from application in Thread-58 - End insert 000157 history trade data Success
+2017-06-30 15:58:35,542 [INFO] from application in Thread-58 - Start insert 000526 history trade data
+2017-06-30 15:58:37,231 [INFO] from application in Thread-55 - End insert 000430 history trade data Success
+2017-06-30 15:58:37,294 [INFO] from application in Thread-55 - Start insert 000530 history trade data
+2017-06-30 15:58:40,614 [INFO] from application in Thread-56 - End insert 000498 history trade data Success
+2017-06-30 15:58:40,726 [INFO] from application in Thread-56 - Start insert 000544 history trade data
+2017-06-30 15:58:50,953 [INFO] from application in Thread-59 - End insert 000488 history trade data Success
+2017-06-30 15:58:51,054 [INFO] from application in Thread-59 - Start insert 000545 history trade data
+2017-06-30 15:58:59,512 [INFO] from application in Thread-58 - End insert 000526 history trade data Success
+2017-06-30 15:58:59,515 [INFO] from application in Thread-57 - End insert 000525 history trade data Success
+2017-06-30 15:58:59,610 [INFO] from application in Thread-57 - Start insert 000546 history trade data
+2017-06-30 15:59:00,147 [INFO] from application in Thread-58 - Start insert 000547 history trade data
+2017-06-30 15:59:06,690 [INFO] from application in Thread-55 - End insert 000530 history trade data Success
+2017-06-30 15:59:07,297 [INFO] from application in Thread-55 - Start insert 000548 history trade data
+2017-06-30 15:59:12,421 [INFO] from application in Thread-56 - End insert 000544 history trade data Success
+2017-06-30 15:59:12,513 [INFO] from application in Thread-56 - Start insert 000593 history trade data
+2017-06-30 15:59:16,102 [INFO] from application in Thread-59 - End insert 000545 history trade data Success
+2017-06-30 15:59:16,179 [INFO] from application in Thread-59 - Start insert 000627 history trade data
+2017-06-30 15:59:27,667 [INFO] from application in Thread-57 - End insert 000546 history trade data Success
+2017-06-30 15:59:27,669 [INFO] from application in Thread-58 - End insert 000547 history trade data Success
+2017-06-30 15:59:27,958 [INFO] from application in Thread-58 - Start insert 000635 history trade data
+2017-06-30 15:59:28,415 [INFO] from application in Thread-57 - Start insert 000651 history trade data
+2017-06-30 15:59:42,569 [INFO] from application in Thread-56 - End insert 000593 history trade data Success
+2017-06-30 15:59:42,570 [INFO] from application in Thread-55 - End insert 000548 history trade data Success
+2017-06-30 15:59:42,639 [INFO] from application in Thread-56 - Start insert 000671 history trade data
+2017-06-30 15:59:42,669 [INFO] from application in Thread-55 - Start insert 000683 history trade data
+2017-06-30 15:59:51,516 [INFO] from application in Thread-59 - End insert 000627 history trade data Success
+2017-06-30 15:59:51,617 [INFO] from application in Thread-59 - Start insert 000685 history trade data
+2017-06-30 16:00:06,753 [INFO] from application in Thread-57 - End insert 000651 history trade data Success
+2017-06-30 16:00:06,754 [INFO] from application in Thread-58 - End insert 000635 history trade data Success
+2017-06-30 16:00:07,106 [INFO] from application in Thread-58 - Start insert 000708 history trade data
+2017-06-30 16:00:07,169 [INFO] from application in Thread-57 - Start insert 000709 history trade data
+2017-06-30 16:00:23,132 [INFO] from application in Thread-55 - End insert 000683 history trade data Success
+2017-06-30 16:00:23,132 [INFO] from application in Thread-56 - End insert 000671 history trade data Success
+2017-06-30 16:00:23,247 [INFO] from application in Thread-56 - Start insert 000710 history trade data
+2017-06-30 16:00:23,361 [INFO] from application in Thread-55 - Start insert 000711 history trade data
+2017-06-30 16:00:29,001 [INFO] from application in Thread-59 - End insert 000685 history trade data Success
+2017-06-30 16:00:29,131 [INFO] from application in Thread-59 - Start insert 000756 history trade data
+2017-06-30 16:00:57,418 [INFO] from application in Thread-58 - End insert 000708 history trade data Success
+2017-06-30 16:00:57,431 [INFO] from application in Thread-57 - End insert 000709 history trade data Success
+2017-06-30 16:00:57,935 [INFO] from application in Thread-58 - Start insert 000757 history trade data
+2017-06-30 16:00:57,984 [INFO] from application in Thread-57 - Start insert 000758 history trade data
+2017-06-30 16:01:20,989 [INFO] from application in Thread-55 - End insert 000711 history trade data Success
+2017-06-30 16:01:20,989 [INFO] from application in Thread-56 - End insert 000710 history trade data Success
+2017-06-30 16:01:21,078 [INFO] from application in Thread-56 - Start insert 000807 history trade data
+2017-06-30 16:01:21,105 [INFO] from application in Thread-55 - Start insert 000809 history trade data
+2017-06-30 16:01:26,869 [INFO] from application in Thread-59 - End insert 000756 history trade data Success
+2017-06-30 16:01:27,041 [INFO] from application in Thread-59 - Start insert 000810 history trade data
+2017-06-30 16:01:49,340 [INFO] from application in Thread-58 - End insert 000757 history trade data Success
+2017-06-30 16:01:49,487 [INFO] from application in Thread-58 - Start insert 000811 history trade data
+2017-06-30 16:02:15,327 [INFO] from application in Thread-57 - End insert 000758 history trade data Success
+2017-06-30 16:02:15,478 [INFO] from application in Thread-57 - Start insert 000830 history trade data
+2017-06-30 16:02:44,854 [INFO] from application in Thread-59 - End insert 000810 history trade data Success
+2017-06-30 16:02:44,856 [INFO] from application in Thread-56 - End insert 000807 history trade data Success
+2017-06-30 16:02:44,857 [INFO] from application in Thread-55 - End insert 000809 history trade data Success
+2017-06-30 16:02:45,125 [INFO] from application in Thread-56 - Start insert 000848 history trade data
+2017-06-30 16:02:45,325 [INFO] from application in Thread-59 - Start insert 000850 history trade data
+2017-06-30 16:02:45,580 [INFO] from application in Thread-55 - Start insert 000851 history trade data
+2017-06-30 16:03:21,476 [INFO] from application in Thread-58 - End insert 000811 history trade data Success
+2017-06-30 16:03:21,683 [INFO] from application in Thread-58 - Start insert 000898 history trade data
+2017-06-30 16:03:39,494 [INFO] from application in Thread-57 - End insert 000830 history trade data Success
+2017-06-30 16:03:39,654 [INFO] from application in Thread-57 - Start insert 000899 history trade data
+2017-06-30 16:04:05,647 [INFO] from application in Thread-55 - End insert 000851 history trade data Success
+2017-06-30 16:04:05,647 [INFO] from application in Thread-56 - End insert 000848 history trade data Success
+2017-06-30 16:04:05,674 [INFO] from application in Thread-59 - End insert 000850 history trade data Success
+2017-06-30 16:04:05,928 [INFO] from application in Thread-56 - Start insert 000900 history trade data
+2017-06-30 16:04:06,128 [INFO] from application in Thread-59 - Start insert 000930 history trade data
+2017-06-30 16:04:06,204 [INFO] from application in Thread-55 - Start insert 000931 history trade data
+2017-06-30 16:04:54,242 [INFO] from application in Thread-58 - End insert 000898 history trade data Success
+2017-06-30 16:04:54,713 [INFO] from application in Thread-58 - Start insert 000961 history trade data
+2017-06-30 16:05:06,428 [INFO] from application in Thread-57 - End insert 000899 history trade data Success
+2017-06-30 16:05:06,568 [INFO] from application in Thread-57 - Start insert 000962 history trade data
+2017-06-30 16:05:47,622 [INFO] from application in Thread-55 - End insert 000931 history trade data Success
+2017-06-30 16:05:47,794 [INFO] from application in Thread-55 - Start insert 000963 history trade data
+2017-06-30 16:05:47,824 [INFO] from application in Thread-56 - End insert 000900 history trade data Success
+2017-06-30 16:05:47,825 [INFO] from application in Thread-59 - End insert 000930 history trade data Success
+2017-06-30 16:05:48,707 [INFO] from application in Thread-56 - Start insert 000965 history trade data
+2017-06-30 16:05:48,802 [INFO] from application in Thread-59 - Start insert 000966 history trade data
+2017-06-30 16:06:44,255 [INFO] from application in Thread-58 - End insert 000961 history trade data Success
+2017-06-30 16:06:45,182 [INFO] from application in Thread-58 - Start insert 000985 history trade data
+2017-06-30 16:06:54,869 [INFO] from application in Thread-57 - End insert 000962 history trade data Success
+2017-06-30 16:06:55,045 [INFO] from application in Thread-57 - Start insert 000987 history trade data
+2017-06-30 16:07:54,029 [INFO] from application in Thread-55 - End insert 000963 history trade data Success
+2017-06-30 16:07:54,084 [INFO] from application in Thread-59 - End insert 000966 history trade data Success
+2017-06-30 16:07:54,084 [INFO] from application in Thread-56 - End insert 000965 history trade data Success
+2017-06-30 16:07:54,237 [INFO] from application in Thread-59 - Start insert 002009 history trade data
+2017-06-30 16:07:54,324 [INFO] from application in Thread-55 - Start insert 002010 history trade data
+2017-06-30 16:07:54,415 [INFO] from application in Thread-56 - Start insert 002011 history trade data
+2017-06-30 16:08:53,205 [INFO] from application in Thread-58 - End insert 000985 history trade data Success
+2017-06-30 16:08:53,341 [INFO] from application in Thread-58 - Start insert 002012 history trade data
+2017-06-30 16:09:02,089 [INFO] from application in Thread-57 - End insert 000987 history trade data Success
+2017-06-30 16:09:02,236 [INFO] from application in Thread-57 - Start insert 002013 history trade data
+2017-06-30 16:10:12,505 [INFO] from application in Thread-55 - End insert 002010 history trade data Success
+2017-06-30 16:10:12,505 [INFO] from application in Thread-59 - End insert 002009 history trade data Success
+2017-06-30 16:10:12,525 [INFO] from application in Thread-56 - End insert 002011 history trade data Success
+2017-06-30 16:10:13,076 [INFO] from application in Thread-59 - Start insert 002051 history trade data
+2017-06-30 16:10:13,592 [INFO] from application in Thread-55 - Start insert 002071 history trade data
+2017-06-30 16:10:13,793 [INFO] from application in Thread-56 - Start insert 002072 history trade data
+2017-06-30 16:11:17,810 [INFO] from application in Thread-58 - End insert 002012 history trade data Success
+2017-06-30 16:11:18,326 [INFO] from application in Thread-58 - Start insert 002073 history trade data
+2017-06-30 16:11:31,462 [INFO] from application in Thread-57 - End insert 002013 history trade data Success
+2017-06-30 16:11:31,688 [INFO] from application in Thread-57 - Start insert 002074 history trade data
+2017-06-30 16:12:49,243 [INFO] from application in Thread-59 - End insert 002051 history trade data Success
+2017-06-30 16:12:49,312 [INFO] from application in Thread-56 - End insert 002072 history trade data Success
+2017-06-30 16:12:49,315 [INFO] from application in Thread-55 - End insert 002071 history trade data Success
+2017-06-30 16:12:49,335 [INFO] from application in Thread-59 - Start insert 002075 history trade data
+2017-06-30 16:12:49,410 [INFO] from application in Thread-56 - Start insert 002081 history trade data
+2017-06-30 16:12:49,496 [INFO] from application in Thread-55 - Start insert 002088 history trade data
+2017-06-30 16:13:58,125 [INFO] from application in Thread-58 - End insert 002073 history trade data Success
+2017-06-30 16:13:58,424 [INFO] from application in Thread-58 - Start insert 002106 history trade data
+2017-06-30 16:14:18,647 [INFO] from application in Thread-57 - End insert 002074 history trade data Success
+2017-06-30 16:14:19,239 [INFO] from application in Thread-57 - Start insert 002107 history trade data
+2017-06-30 16:15:41,257 [INFO] from application in Thread-59 - End insert 002075 history trade data Success
+2017-06-30 16:15:41,413 [INFO] from application in Thread-59 - Start insert 002131 history trade data
+2017-06-30 16:15:58,883 [INFO] from application in Thread-55 - End insert 002088 history trade data Success
+2017-06-30 16:15:59,167 [INFO] from application in Thread-56 - End insert 002081 history trade data Success
+2017-06-30 16:15:59,440 [INFO] from application in Thread-55 - Start insert 002132 history trade data
+2017-06-30 16:15:59,524 [INFO] from application in Thread-56 - Start insert 002133 history trade data
+2017-06-30 16:17:46,548 [INFO] from application in Thread-58 - End insert 002106 history trade data Success
+2017-06-30 16:17:46,756 [INFO] from application in Thread-58 - Start insert 002134 history trade data
+2017-06-30 16:18:15,419 [INFO] from application in Thread-57 - End insert 002107 history trade data Success
+2017-06-30 16:18:15,885 [INFO] from application in Thread-57 - Start insert 002135 history trade data
+2017-06-30 16:19:26,111 [INFO] from application in Thread-59 - End insert 002131 history trade data Success
+2017-06-30 16:19:26,411 [INFO] from application in Thread-59 - Start insert 002136 history trade data
+2017-06-30 16:19:51,683 [INFO] from application in Thread-56 - End insert 002133 history trade data Success
+2017-06-30 16:19:51,683 [INFO] from application in Thread-55 - End insert 002132 history trade data Success
+2017-06-30 16:19:51,792 [INFO] from application in Thread-56 - Start insert 002137 history trade data
+2017-06-30 16:19:51,867 [INFO] from application in Thread-55 - Start insert 002142 history trade data
+2017-06-30 16:21:44,369 [INFO] from application in Thread-58 - End insert 002134 history trade data Success
+2017-06-30 16:21:44,617 [INFO] from application in Thread-58 - Start insert 002151 history trade data
+2017-06-30 16:22:12,660 [INFO] from application in Thread-57 - End insert 002135 history trade data Success
+2017-06-30 16:22:13,047 [INFO] from application in Thread-57 - Start insert 002173 history trade data
+2017-06-30 16:22:55,106 [INFO] from application in Thread-59 - End insert 002136 history trade data Success
+2017-06-30 16:22:55,452 [INFO] from application in Thread-59 - Start insert 002174 history trade data
+2017-06-30 16:24:11,861 [INFO] from application in Thread-56 - End insert 002137 history trade data Success
+2017-06-30 16:24:11,862 [INFO] from application in Thread-55 - End insert 002142 history trade data Success
+2017-06-30 16:24:12,740 [INFO] from application in Thread-55 - Start insert 002195 history trade data
+2017-06-30 16:24:12,923 [INFO] from application in Thread-56 - Start insert 002207 history trade data
+2017-06-30 16:26:07,528 [INFO] from application in Thread-58 - End insert 002151 history trade data Success
+2017-06-30 16:26:07,608 [INFO] from application in Thread-58 - Start insert 002222 history trade data
+2017-06-30 16:26:37,024 [INFO] from application in Thread-57 - End insert 002173 history trade data Success
+2017-06-30 16:26:37,742 [INFO] from application in Thread-57 - Start insert 002376 history trade data
+2017-06-30 16:27:13,703 [INFO] from application in Thread-59 - End insert 002174 history trade data Success
+2017-06-30 16:27:13,799 [INFO] from application in Thread-59 - Start insert 600599 history trade data
+2017-06-30 16:29:16,932 [INFO] from application in Thread-56 - End insert 002207 history trade data Success
+2017-06-30 16:29:16,938 [INFO] from application in Thread-55 - End insert 002195 history trade data Success
+2017-06-30 16:30:13,653 [INFO] from application in Thread-58 - End insert 002222 history trade data Success
+2017-06-30 16:30:25,268 [INFO] from application in Thread-57 - End insert 002376 history trade data Success
+2017-06-30 16:30:37,529 [INFO] from application in Thread-59 - End insert 600599 history trade data Success

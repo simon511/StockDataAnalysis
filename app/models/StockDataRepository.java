@@ -26,6 +26,10 @@ public class StockDataRepository {
         wrap(em -> saveOptionalStock(em,optionalStock));
     }
 
+    public void insertStock(Stock stock){
+        wrap(em -> saveStock(em,stock));
+    }
+
     public void insertDailytrade(StockDailyTrade stockDailyTrade){
         wrap(em -> insert(em,stockDailyTrade));
     }
@@ -37,6 +41,23 @@ public class StockDataRepository {
     public void saveorUpdateOptionalStock(OptionalStock optionalStock){
         wrap(em -> saveOrUpdateOptionalStock(em,optionalStock));
     }
+
+    public void saveorUpdateStock(Stock stock){
+        wrap(em -> saveOrUpdateStock(em,stock));
+    }
+
+    public Stock findStock(String stockCode){
+        String sql="select s from Stock s where s.stockCode ='%s' ";
+        List  results = jpaApi.em("default").createQuery(String.format(sql,stockCode), Stock.class).getResultList();
+        if (results.isEmpty()) {
+            return null;
+        } else if (results.size() == 1) {
+            return (Stock) results.get(0);
+        }
+
+        return null;
+    }
+
     public OptionalStock findOptionalStock(String stockCode){
         String sql="select s from OptionalStock s where s.stockCode ='%s' ";
         List  results = jpaApi.em("default").createQuery(String.format(sql,stockCode), OptionalStock.class).getResultList();
@@ -47,6 +68,11 @@ public class StockDataRepository {
         }
 
         return null;
+    }
+
+    public List findByNativeSQL(String sql){
+        List results = jpaApi.em("default").createNativeQuery(sql).getResultList();
+        return results;
     }
 
     public List findTop2StockDailyTradeList(String stockCode){
@@ -65,6 +91,13 @@ public class StockDataRepository {
         }
 
         return null;
+    }
+
+    public List<Stock> findActivityStockList(){
+
+        String sql="select s from Stock s where s.status='Activity' and s.dataStatus='OUTSTANDING' order by s.stockCode";
+        return jpaApi.em("default").createQuery(sql, Stock.class).getResultList();
+
     }
 
     public List findStageChange(String stockCode,String startDate){
@@ -115,8 +148,17 @@ public class StockDataRepository {
         return optionalStock;
     }
 
+    private Stock saveOrUpdateStock(EntityManager em, Stock stock) {
+        em.merge(stock);
+        return stock;
+    }
     private OptionalStock saveOptionalStock(EntityManager em,OptionalStock optionalStock){
         em.persist(optionalStock);
         return optionalStock;
+    }
+
+    private Stock saveStock(EntityManager em,Stock stock){
+        em.persist(stock);
+        return stock;
     }
 }
